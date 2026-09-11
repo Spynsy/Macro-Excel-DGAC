@@ -79,12 +79,12 @@ Sub Determiner_Type_Correction()
                             Cellule.Offset(0, 6) = "0"
                         
                         
-                        ElseIf Coflight = "4F" Or _
+                        ElseIf Trim(Coflight) = "4F" Or _
                         Trim(Coflight) = "4F" & Chr(10) & "DART" Or _
                         Trim(Coflight) = "4F" & Chr(10) & "JHMI" Or _
-                        Trim(Coflight) = "4F" & Chr(10) & "STS 4F" _
-                        Or Trim(Coflight) = "4F" & Chr(10) & "ATLAS" _
-                        Or Trim(Coflight) = "4F" & Chr(10) & "RESMS" Or _
+                        Trim(Coflight) = "4F" & Chr(10) & "STS 4F" Or _
+                        Trim(Coflight) = "4F" & Chr(10) & "ATLAS" Or _
+                        Trim(Coflight) = "4F" & Chr(10) & "RESMS" Or _
                         Trim(Coflight) = "4F" & Chr(10) & "SWIFT" Or _
                         Trim(Coflight) = "4F" & Chr(10) & "STM" Then
             
