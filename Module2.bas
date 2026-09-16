@@ -33,6 +33,7 @@ Sub Determiner_Type_Correction()
     Dim Cellule As Range
     Dim valeur As Range
     Dim RajoutPCR As Range
+    Dim Formule As Range
     
     Dim wsRef As Worksheet
     Dim ws_PCR As Worksheet
@@ -63,9 +64,10 @@ Sub Determiner_Type_Correction()
                                     
                 RajoutPCR.EntireRow.Insert
                 RajoutPCR.Offset(-1, 4) = MyDate
+                RajoutPCR.Offset(-1, 1) = MyDate
                 RajoutPCR.Offset(-1, 5) = Cellule.Offset(0, -1)
                 RajoutPCR.Offset(-1, 6) = "PCR"
-                                
+               
                 If Not IsError(Resultat) Then
                 
                     If Resultat = "Hardware" Then 'Correction Harware'
