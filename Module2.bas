@@ -11,15 +11,15 @@ Sub attribuer_FFT_PCR()
     
     Set wsRef = Worksheets("Nbres analyses2")
 
-    For Each Cellule In Worksheets("Work-Analyses").Range("B2:B4000")
+    For Each Cellule In Worksheets("Work-Analyses").Range("B2:B4000") 'Cherche à savoir si une PCR est déjà attribué à une FFT'
 
         If Trim(Cellule.Value) = "" Then
 
-            Resultat = Application.VLookup(Cellule.Offset(0, -1).Value, wsRef.Range("B:M"), 12, False)
+            Resultat = Application.VLookup(Cellule.Offset(0, -1).Value, wsRef.Range("B:M"), 12, False) 'Si la cellule est nulle, elle va regarder celle de gauche pour voir si il y a une FFT existante et y rattacher la PCR'
             
             If Not IsError(Resultat) Then
 
-                Cellule.Value = Resultat
+                Cellule.Value = Resultat 'Inscrit la PCR trouvée'
                 Cellule.Offset(0, 1) = MyDate
             End If
 
@@ -46,7 +46,7 @@ Sub Determiner_Type_Correction()
     Set wsRef = Worksheets("Nbres analyses2")
     Set wsPCR = Worksheets("Liste PCR (Vue période)")
     
-    For Each Cellule In Worksheets("Corrections PCR-IRF").Range("B2:B4000")
+    For Each Cellule In Worksheets("Corrections PCR-IRF").Range("B2:B4000") 'La cellule calculée est sur la colonne B'
         If Trim(Cellule.Value) = "" Then
             
             If Cellule.Offset(0, -1) <> "" Then 'Regarde si une PCR est déjà associée'
@@ -114,7 +114,7 @@ Sub Determiner_Type_Correction()
                             Cellule.Offset(0, 6) = "0"
                         
                         Else
-                            Cellule.Value = ""
+                            Cellule.Value = "" 'Permet de connaitre les PCR ayant des problèmes d'attributions'
                         
                         End If
                     End If
